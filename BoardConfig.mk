@@ -27,5 +27,8 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 # Kernel
 TARGET_KERNEL_CONFIG := X00H_defconfig
 
+# VNDK
+BOARD_VNDK_RUNTIME_DISABLE := true
+
 # Inherit from the proprietary version
 include vendor/asus/X00H/BoardConfigVendor.mk
