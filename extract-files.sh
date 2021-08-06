@@ -23,6 +23,10 @@ function blob_fixup() {
             "${PATCHELF_0_8}" --remove-needed "libunwind.so" "${2}"
             sed -i "s|libbinder.so|gxfp_shim.so|g" "${2}"
             ;;
+        vendor/lib64/hw/cdfinger.fingerprint.default.so \
+        |vendor/lib64/libgf_ca.so)
+            sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
+            ;;
     esac
 }
 
