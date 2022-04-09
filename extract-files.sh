@@ -25,14 +25,14 @@ function blob_fixup() {
                 exit;
             fi
             ;;
-        vendor/lib64/hw/fingerprint.default.so \
+        vendor/lib64/hw/fingerprint.goodix.default.so \
         |vendor/lib64/libgoodixfingerprintd_binder.so \
         |vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
             "${PATCHELF_0_8}" --remove-needed "libbacktrace.so" "${2}"
             "${PATCHELF_0_8}" --remove-needed "libunwind.so" "${2}"
             sed -i "s|libbinder.so|gxfp_shim.so|g" "${2}"
             ;;
-        vendor/lib64/hw/cdfinger.fingerprint.default.so \
+        vendor/lib64/hw/fingerprint.cdfinger.default.so \
         |vendor/lib64/libgf_ca.so)
             sed -i "s|/firmware/image|/vendor/f/image|g" "${2}"
             ;;
